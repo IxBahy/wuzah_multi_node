@@ -1,0 +1,16 @@
+wi1 ansible_host=<wi1_ec2_public_ip> private_ip=<wi1_ec2_private_ip> indexer_node_name=node-1
+wi2 ansible_host=<wi2_ec2_public_ip> private_ip=<wi2_ec2_private_ip> indexer_node_name=node-2
+wi3 ansible_host=<wi3_ec2_public_ip> private_ip=<wi3_ec2_private_ip> indexer_node_name=node-3
+dashboard  ansible_host=<dashboard_node_public_ip> private_ip=<dashboard_ec2_private_ip>
+manager ansible_host=<manager_node_public_ip> private_ip=<manager_ec2_private_ip>
+worker  ansible_host=<worker_node_public_ip> private_ip=<worker_ec2_private_ip>
+
+[wi_cluster]
+wi1
+wi2
+wi3
+
+[all:vars]
+ansible_ssh_user=vagrant
+ansible_ssh_private_key_file=/path/to/ssh/key.pem
+ansible_ssh_extra_args='-o StrictHostKeyChecking=no'
